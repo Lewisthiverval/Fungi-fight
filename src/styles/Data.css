@@ -1,0 +1,48 @@
+.dataContainer {
+  width: 24%;
+
+  background-color: rgb(244, 169, 169);
+  opacity: 0.9;
+
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  border-radius: 10px;
+  border-radius: 0.5%;
+  border-width: 2px;
+  border-color: #040404;
+  margin-right: 2%;
+}
+.data {
+  height: 100%;
+  background-color: white;
+  padding: 1%;
+
+  font-size: 15px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.data.scroll {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.cardContainer2 {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+
+  background-color: wheat;
+  opacity: 0.9;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border: solid;
+  border-radius: 10px;
+
+  border-width: 2px;
+  padding: 3px;
+  margin: 5px;
+  box-shadow: 3px 3px 1px rgb(14, 50, 61);
+}

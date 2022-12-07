@@ -1,0 +1,50 @@
+import { useState } from "react";
+import "../styles/Form.css";
+import { api, fireDb } from "../data";
+import type { Fighter, User } from "../data";
+
+export function Form({
+  onLogin,
+}: {
+  onLogin: (user: { name: string }) => void;
+}) {
+  const [state, setState] = useState({ name: "", email: "" });
+
+  const style = {
+    fontSize: "60px",
+  };
+
+  return (
+    <div className="formContainer">
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          onLogin(state);
+          fireDb.addUser(state.name, state.email);
+        }}
+      >
+        <label htmlFor="name" style={style}>
+          Create Username
+        </label>
+        <input
+          type="text"
+          placeholder="username"
+          name="name"
+          id="name"
+          value={state.name}
+          onChange={(e) => setState({ ...state, name: e.target.value })}
+        ></input>
+        <input
+          type="text"
+          placeholder="email (optional)"
+          name="email"
+          id="email"
+          value={state.email}
+          onChange={(e) => setState({ ...state, email: e.target.value })}
+        ></input>
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+}
