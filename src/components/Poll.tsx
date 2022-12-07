@@ -15,9 +15,7 @@ export const ProgBar = ({ done }) => {
           opacity: 1,
           width: `${done}%`,
         }}
-      >
-        {done}%
-      </div>
+      ></div>
     </div>
   );
 };
