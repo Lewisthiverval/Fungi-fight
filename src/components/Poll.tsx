@@ -40,7 +40,11 @@ export function Poll({
   }, []);
 
   function getPourcentage(num: number, total: number) {
-    return (num / total) * 100;
+    if (num != 0) {
+      return (num / total) * 100;
+    } else {
+      return num;
+    }
   }
 
   const style = {
