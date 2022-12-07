@@ -1,5 +1,6 @@
 import React from "react";
 import { fireDb } from "../data";
+import logo from "../assets/logo.png";
 
 export default function Header({
   deleteAllMessages,
@@ -19,7 +20,7 @@ export default function Header({
   return (
     <div>
       <div className="headerContainer">
-        <img src="src/assets/Middel 1.png" className="logo"></img>
+        <img src={logo} className="logo"></img>
         <header className="header">
           <button className="headerButtons" onClick={logOut}>
             Log out
