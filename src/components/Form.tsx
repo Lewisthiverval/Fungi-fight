@@ -10,10 +10,6 @@ export function Form({
 }) {
   const [state, setState] = useState({ name: "", email: "" });
 
-  const style = {
-    fontSize: "60px",
-  };
-
   return (
     <div className="formContainer">
       <form
@@ -24,7 +20,7 @@ export function Form({
           fireDb.addUser(state.name, state.email);
         }}
       >
-        <label htmlFor="name" style={style}>
+        <label htmlFor="name" className="create">
           Create Username
         </label>
         <input

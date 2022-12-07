@@ -4,6 +4,7 @@ import "../styles/Data.css";
 import { fighters } from "../data";
 import { users } from "../data";
 import FighterCard from "./FighterCard";
+import "../styles/fighterCard.css";
 
 export default function Model({}: {}) {
   useEffect(() => {
@@ -15,7 +16,10 @@ export default function Model({}: {}) {
   return (
     <div className="dataContainer">
       <div className="data">
-        <h2 className="title">fighters</h2>
+        <div className="title-bar">
+          <div className="title-bar-text">Players</div>
+        </div>
+
         <div className="cardContainer2">
           <FighterCard
             name="P.Velutina"
@@ -50,16 +54,6 @@ export default function Model({}: {}) {
             />
           </div>
         </div>
-
-        <h2 className="title">users</h2>
-        {Object.keys(users).map((key) => {
-          return (
-            <div>
-              <div style={style}>{users[key].name}</div>
-              <div>{users[key].vote}</div>
-            </div>
-          );
-        })}
       </div>
     </div>
   );

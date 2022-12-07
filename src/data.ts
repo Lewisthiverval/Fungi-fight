@@ -134,6 +134,19 @@ export const fireDb = {
       });
   },
 
+  getVotes: async () => {
+    let totalVotes = 0;
+    return await getDocs(dbFighters)
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          totalVotes += doc.data().vote;
+        });
+      })
+      .then(() => {
+        return totalVotes;
+      });
+  },
+
   getDbChat: () =>
     getDocs(dbChat).then((snapshot) => {
       return snapshot.docs.map((doc) => {

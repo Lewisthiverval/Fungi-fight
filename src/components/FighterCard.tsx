@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/fighterCard.css";
 
 import { db } from "../config";
 import { collection, getDocs, addDoc } from "@firebase/firestore";
@@ -27,20 +28,12 @@ export default function FighterCard({
     justifyContent: "center",
   };
 
-  const styleBox = {
-    padding: "5px",
-
-    justifycontent: "center",
-  };
-
   return (
-    <div style={styleBox}>
-      <div style={stylesName}></div>
+    <div className="styleBox">
       <h4>{name}</h4>
-      <ul style={stylesList}>
-        <li>{phrase1}</li>
-        <li>{phrase2}</li>
-      </ul>
+      <h2 style={stylesList}></h2>
+      <p className="p">{phrase1}</p>
+      <p className="p">{phrase2}</p>
     </div>
   );
 }

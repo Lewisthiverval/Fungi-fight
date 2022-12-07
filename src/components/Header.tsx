@@ -24,33 +24,32 @@ export default function Header({
           <button className="headerButtons" onClick={logOut}>
             Log out
           </button>
-          <button
+          {/* <button
             className="headerButtons"
             onClick={() => {
               deleteAllUsers();
             }}
           >
             delete all users
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="headerButtons"
             onClick={() => {
               deleteAllMessages();
             }}
           >
             delete chat
-          </button>
+          </button> */}
           <button className="headerButtons" onClick={toggleChatData}>
             Chat
           </button>
           <button className="headerButtons" onClick={toggleViewData}>
-            Data
+            Species
           </button>
           <button className="headerButtons" onClick={toggleCreateNewFigtht}>
-            {" "}
             Timetable
           </button>
-          <button
+          {/* <button
             className="headerButtons"
             onClick={() => {
               fireDb.getDbUsers();
@@ -59,7 +58,7 @@ export default function Header({
           >
             {" "}
             Delete votes
-          </button>
+          </button> */}
         </header>
       </div>
     </div>

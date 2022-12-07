@@ -6,6 +6,22 @@ import { fireDb } from "../data";
 
 import "../styles/Poll.css";
 
+export const ProgBar = ({ done }) => {
+  return (
+    <div className="progress">
+      <div
+        className="progressDone"
+        style={{
+          opacity: 1,
+          width: `${done}%`,
+        }}
+      >
+        {done}%
+      </div>
+    </div>
+  );
+};
+
 export function Poll({
   hasVoted,
   setHasVoted,
@@ -18,10 +34,16 @@ export function Poll({
   currentUser: { email: string; name: string; vote: string };
 }) {
   const [count, setCount] = useState(0);
+  const [totalVotes, setTotalvotes] = useState(0);
 
   useEffect(() => {
     fireDb.getFighterVotes(name).then(setCount);
+    fireDb.getVotes().then(setTotalvotes);
   }, []);
+
+  function getPourcentage(num: number, total: number) {
+    return (num / total) * 100;
+  }
 
   const style = {
     fontSize: "50px",
@@ -46,30 +68,30 @@ export function Poll({
                   "notification"
                 );
                 setHasVoted(true);
-                console.log(count, "count");
               }}
             >
               {name}
             </button>
           ) : (
             <button
-              className="voteButton"
+              className="votedButton"
               onClick={() => {
                 console.log("You have already voted...");
+                fireDb.getVotes().then((x) => {
+                  console.log(x);
+                });
               }}
             >
-              bet placed
+              {name}
             </button>
           )}
         </div>
         <div className="displayCount">
-          {count}
+          {Math.round(getPourcentage(count, totalVotes))}%
           <span className="pourcentageBar"></span>
           <span className="pourcentageValue"></span>
         </div>
-        <div className="progress">
-          <div className="progressDone"></div>
-        </div>
+        <ProgBar done={Math.round(getPourcentage(count, totalVotes))} />
       </div>
     </div>
   );

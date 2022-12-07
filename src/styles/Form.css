@@ -13,4 +13,12 @@
   flex-direction: column;
   margin-bottom: 40px;
   gap: 20px;
+  font-size: 27px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.create {
+  font-size: 60px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }

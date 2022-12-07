@@ -22,12 +22,16 @@ export const FighterPoll = ({
     "C.Versicolor",
     "Daldinia Concentrica",
     "P.Velutina",
-    "S.Hirsutum",
+    "S.HIrsitum",
   ];
   return (
     <div className="pollContainer">
       <div className="pollSubContainer">
-        <div className="title">Place Bet</div>
+        {!hasVoted ? (
+          <div className="title">Place Bet</div>
+        ) : (
+          <div className="title">You have placed your bet</div>
+        )}
         {fighters.map((fighter) => (
           <Poll
             hasVoted={hasVoted}
