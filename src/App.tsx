@@ -31,10 +31,7 @@ import {
   deleteDoc,
   setDoc,
 } from "@firebase/firestore";
-import { UserMedia } from "tone";
-import Modal from "./components/DataModel";
 import { FightersPannel } from "./components/FightersPannel";
-import { Fighters } from "./data";
 
 // ///////////////////////////////////////////////////////////////////////
 function App() {
