@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import "../styles/Form.css";
-import { api, fireDb } from "../data";
-import type { Fighter, User } from "../data";
+
+import { fireDb } from "../data";
 
 export function Form({
   onLogin,

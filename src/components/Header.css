@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 1rem;
+}
+
+header > div {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+header > div > a {
+  white-space: nowrap;
+  font-size: 1.6rem;
+}
+
+header img {
+  width: 40%;
+}
+
+.hide-link-large {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .hide-link-large {
+    display: inline-block;
+  }
+}

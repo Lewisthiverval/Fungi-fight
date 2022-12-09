@@ -1,0 +1,56 @@
+.chatContainer {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr max-content;
+  min-width: 0;
+  min-height: 0;
+}
+
+.chat {
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.chat .message {
+}
+
+.chat .message.self {
+  color: #ff1493;
+}
+
+.chat .notification {
+  font-style: italic;
+  color: rgb(152, 24, 50);
+}
+
+.formChat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  width: 100%;
+  height: 3rem;
+}
+
+.formChat form {
+  width: 90%;
+  display: flex;
+  gap: 1rem;
+}
+
+.formChat form input {
+  width: 100%;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+}
+
+.formChat form button {
+  margin: 0;
+  padding: 0.2rem 0.8rem;
+}

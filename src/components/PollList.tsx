@@ -9,12 +9,14 @@ const getPourcentage = (count: number) => {
   return total;
 };
 
-export const FighterPoll = ({
+import "./Poll.css";
+
+export const PollList = ({
   currentUser,
   hasVoted,
   setHasVoted,
 }: {
-  currentUser: { name: string; email: string; vote: string };
+  currentUser: { name: string };
   hasVoted: boolean;
   setHasVoted: (vote: any) => void;
 }) => {
@@ -25,22 +27,20 @@ export const FighterPoll = ({
     "S.HIrsitum",
   ];
   return (
-    <div className="pollContainer">
-      <div className="pollSubContainer">
-        {/* {!hasVoted ? (
+    <div className="poll-list">
+      {/* {!hasVoted ? (
           <div className="title">Place Bet</div>
         ) : (
           <div className="title">You have placed your bet</div>
         )} */}
-        {fighters.map((fighter) => (
-          <Poll
-            hasVoted={hasVoted}
-            setHasVoted={setHasVoted}
-            name={fighter}
-            currentUser={currentUser}
-          />
-        ))}
-      </div>
+      {fighters.map((fighter) => (
+        <Poll
+          hasVoted={hasVoted}
+          setHasVoted={setHasVoted}
+          name={fighter}
+          currentUser={currentUser}
+        />
+      ))}
     </div>
   );
 };

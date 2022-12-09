@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "../styles/Chat.css";
-import { api, fireDb, Message } from "../data";
-import { chat } from "../data";
+import React, { useEffect, useRef, useState } from "react";
+import { fireDb, Message } from "../data";
+import "./ChatRoom.css";
 
-import {
-  doc,
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  setDoc,
-  orderBy,
-} from "@firebase/firestore";
-import { db } from "../config";
+import { useAppState } from "../store";
 
-export default function ChatRoom({
-  user,
-  addMessage,
-}: {
-  user: { name: string; email: string; vote: string };
-  addMessage: (message: string, user: string, type: string) => any;
-}) {
+export default function ChatRoom({}: {}) {
   const [value, setValue] = useState("");
   const [chat, setChat] = useState<Message[]>([]);
+  const ref = useRef(null);
+
+  const user = useAppState((x) => x.user);
 
   useEffect(() => {
     fireDb.getDbChat().then(setChat);
@@ -32,26 +18,24 @@ export default function ChatRoom({
   useEffect(() => {
     const unsubscribe = fireDb.onDbChat((messages) => {
       setChat(messages);
+      ref.current.scrollTop = ref.current.scrollHeight;
     });
     return () => unsubscribe();
   }, []);
 
-  const nameStyle = {
-    color: "red",
-  };
   return (
     <div className="chatContainer">
       <div className="title-bar">
         <div className="title-bar-text">Chat Room</div>
       </div>
 
-      <div className="chat">
+      <div className="chat" ref={ref}>
         {chat.map((message) =>
           message.type === "message" ? (
             user.name === message.name ? (
-              <div className="selfMessage">{`You: ${message.content}`}</div>
+              <div className="message self">{`You: ${message.content}`}</div>
             ) : (
-              <div className="Message">
+              <div className="message">
                 <span className="name">{message.name}: </span>
                 {message.content}
               </div>
@@ -61,29 +45,24 @@ export default function ChatRoom({
           )
         )}
       </div>
-      <form
-        className="formChat"
-        onSubmit={(e) => {
-          e.preventDefault();
-          fireDb.addToChat(value, user.name, "message");
-          setValue("");
-          console.log(chat);
-        }}
-      >
-        <input
-          className="inputChat"
-          name="message"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        ></input>
-
-        <button>SEND</button>
-      </form>
+      <div className="formChat">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            fireDb.addToChat(value, user.name, "message");
+            setValue("");
+            console.log(chat);
+          }}
+        >
+          <input
+            className="inputChat"
+            name="message"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          ></input>
+          <button>SEND</button>
+        </form>
+      </div>
     </div>
   );
 }
-
-const onClick = (cb: () => any) => {
-  window.addEventListener("click", cb);
-  return () => window.removeEventListener("click", cb);
-};
