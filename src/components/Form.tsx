@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./form.css";
 
 import { fireDb } from "../data";
 

@@ -24,6 +24,7 @@
   text-align: center;
   position: relative;
   background-color: rgb(188, 194, 253);
+  z-index: -2;
 }
 .progress-label {
   padding: 0.3rem;
@@ -35,4 +36,5 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
 }
