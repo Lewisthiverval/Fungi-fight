@@ -24,7 +24,7 @@ export default function ChatRoom({}: {}) {
   }, []);
 
   return (
-    <div className="chatContainer">
+    <div className="chat-container">
       <div className="title-bar">
         <div className="title-bar-text">Chat Room</div>
       </div>
