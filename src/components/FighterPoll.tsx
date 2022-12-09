@@ -27,11 +27,11 @@ export const FighterPoll = ({
   return (
     <div className="pollContainer">
       <div className="pollSubContainer">
-        {!hasVoted ? (
+        {/* {!hasVoted ? (
           <div className="title">Place Bet</div>
         ) : (
           <div className="title">You have placed your bet</div>
-        )}
+        )} */}
         {fighters.map((fighter) => (
           <Poll
             hasVoted={hasVoted}

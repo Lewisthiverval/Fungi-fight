@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Form.css";
 import { api, fireDb } from "../data";
 import type { Fighter, User } from "../data";
@@ -9,6 +9,11 @@ export function Form({
   onLogin: (user: { name: string }) => void;
 }) {
   const [state, setState] = useState({ name: "", email: "" });
+  const [allUsers, setAllUsers] = useState([]);
+
+  useEffect(() => {
+    setAllUsers(fireDb.getDbUsers());
+  }, []);
 
   return (
     <div className="formContainer">

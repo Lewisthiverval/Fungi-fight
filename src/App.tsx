@@ -1,4 +1,5 @@
 import { useEffect, useId, useState } from "react";
+
 import "./styles/App.css";
 import "./styles/Header.css";
 import "./styles/Video.css";
@@ -103,7 +104,7 @@ function App() {
   // ///////////////////////////////////////////////////
   useEffect(() => {
     setUsers(fireDb.getDbUsers());
-    // updateChat(fireDb.getDbChat());
+    // console.log(user, "user");
   }, []);
 
   ////////////////////////////////////////////////////////////
