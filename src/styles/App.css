@@ -74,10 +74,13 @@ h4 {
   min-width: 0;
 }
 
-.video {
-  background-color: rgba(0, 0, 255, 0.306);
+.videoContainer {
+  display: flex;
+  justify-content: center;
 }
-
+.video {
+  height: 90%;
+}
 .home {
   box-sizing: border-box;
   /* font-family: Arial; */
